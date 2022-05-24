@@ -45,32 +45,29 @@ const playRound = (playerSelection, computerSelection) => {
         divResult.innerText = `${firstMessage} \n ${computerScore} points : Computer \n ${playerScore} points : You`
     } else if ((playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'scissors') || (playerSelection === 'scissors' && computerSelection === 'rock')) {
         computerScore += 1;
+        firstMessage = `You lost this round! ${computerSelection} beats ${playerSelection}`;
         divResult.innerText = `${firstMessage} \n ${computerScore} points : Computer \n ${playerScore} points : You`
         if (computerScore === 5) {
             firstMessage = `Game over! The Computer won with 5 points. To start a new game please choose; rock, paper or scissors`;
-            divResult.innerText = firstMessage;
+            divResult.innerText = `${firstMessage} \n ${computerScore} points : Computer \n ${playerScore} points : You`;
             console.log(firstMessage);
             console.log(computerScore);
             computerScore = 0;
             playerScore = 0;
             playerSelection = null;
-        } else {
-        firstMessage = `You lost this round! ${computerSelection} beats ${playerSelection}`;
-
         }
     } else {
         playerScore += 1;
+        firstMessage = `You won this round! ${playerSelection} beats ${computerSelection}`;
         divResult.innerText = `${firstMessage} \n ${computerScore} points : Computer \n ${playerScore} points : You`
         if (playerScore === 5) {
             firstMessage = `Game over! You won with 5 points. To start a new game please choose; rock, paper or scissors`;
-            divResult.innerText = firstMessage;
+            divResult.innerText = `${firstMessage} \n ${computerScore} points : Computer \n ${playerScore} points : You`;
             console.log(firstMessage);
             console.log(computerScore);
             computerScore = 0;
             playerScore = 0;
             playerSelection = null;
-        } else {
-            firstMessage = `You won this round! ${playerSelection} beats ${computerSelection}`;
         }
     }
 }
